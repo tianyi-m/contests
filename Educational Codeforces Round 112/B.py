@@ -5,7 +5,7 @@ def solve(W, H, x1, y1, x2, y2, w, h):
 	top_right = (W - x2) * (H - y2)
 	bottom_left = x1 * y1
 	bottom_right = (W - x2) * y1
-	corner_choice = np.argmax(top_left, top_right, bottom_left, bottom_right)		
+	corner_choice = np.argmax([top_left, top_right, bottom_left, bottom_right])		
 
 	dx, dy = 0, 0
 	if corner_choice == 1 or corner_choice == 3:
@@ -20,12 +20,12 @@ def solve(W, H, x1, y1, x2, y2, w, h):
 	elif y1 < h:
 		dy = h-y1
 
-	return (dx**2 + dy**2)**0.5
+	return min(dx, dy)
     
 test_cases = int(input())
 
 for i in range(test_cases):
 	W, H = [int(x) for x in input().split(" ")]
-	x1, y1, x2, y1 = [int(x) for x in input().split(" ")]
+	x1, y1, x2, y2 = [int(x) for x in input().split(" ")]
 	w, h = [int(x) for x in input().split(" ")]
 	print(solve(W, H, x1, y1, x2, y2, w, h))
