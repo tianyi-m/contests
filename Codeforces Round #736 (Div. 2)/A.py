@@ -1,3 +1,4 @@
+# both methods are correct, however excessive
 
 # memory space exceeded
 def solve(case):
