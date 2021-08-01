@@ -29,6 +29,9 @@ def solve2(case):
 				base2 = p
 				return base1, base2
 
+# since P is a prime, P-1 is always an even composite number. So we can simply pick 2 and P-1 
+def solve_correct(case):
+	return 2, case-1
 
 test_cases = int(input())
 
